@@ -91,10 +91,34 @@
         return arrOfCode;
     }
 
+    function getStatisticOfSignals(arr) {
+        arr.sort();
+        let arrOfStat = [];
+        let count = 0;
+        let currentElement = arr[0];
+        arr.forEach(element => {
+            if (element != currentElement) {
+                arrOfStat.push({
+                    number: currentElement,
+                    count: count,
+                });
+                count = 1;
+                currentElement = element;
+            } else {
+                count += 1;
+            }
+        });
+        arrOfStat.push({
+            number: currentElement,
+            count: count,
+        });
+        return arrOfStat;
+    }
+
 </script>
 
 <body>
-  
+
 </body>
 
 </html>
